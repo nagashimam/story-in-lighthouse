@@ -1,0 +1,20 @@
+{
+  "name": "story-in-lighthouse",
+  "version": "0.0.1",
+  "description": "This package crawls your Storybook and runs lighthouse audits for each story",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "lighthouse",
+    "Storybook",
+    "performance",
+    "a11y"
+  ],
+  "author": "masato.nagashima",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
