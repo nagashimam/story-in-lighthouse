@@ -34,14 +34,19 @@ jest.mock("storycrawler", () => {
 
 test("should throw error when invalid url is passed as constructor", () => {
   const loader = new StoryLoader();
-  return expect(loader.getStories("invalid-url")).rejects.toMatch(
+  return expect(loader.getStoryIframeUrls("invalid-url")).rejects.toMatch(
     "Please check format of your url: invalid-url"
   );
 });
 
-test("should fetch array of Story when url is valid", () => {
+test("should fetch array of Story iframe url when Storybook url is valid", () => {
   const loader = new StoryLoader();
   return expect(
-    loader.getStories("https://storybookjs.netlify.app/vue-kitchen-sink")
-  ).resolves.toEqual(dummyStories);
+    loader.getStoryIframeUrls(
+      "https://storybookjs.netlify.app/vue-kitchen-sink"
+    )
+  ).resolves.toEqual([
+    "https://storybookjs.netlify.app/vue-kitchen-sink/iframe?id=id&viewMode=story",
+    "https://storybookjs.netlify.app/vue-kitchen-sink/iframe?id=id2&viewMode=story",
+  ]);
 });

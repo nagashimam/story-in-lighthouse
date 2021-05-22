@@ -1,13 +1,16 @@
 import { StoriesBrowser, Story, StorybookConnection } from "storycrawler";
 
 export class StoryLoader {
-  async getStories(storybookUrl: string): Promise<Story[]> {
+  async getStoryIframeUrls(storybookUrl: string): Promise<string[]> {
     if (storybookUrl.match(/https?:\/\/.+/)) {
       const connection = await new StorybookConnection({
         storybookUrl,
       }).connect();
       const storiesBrowser = await new StoriesBrowser(connection).boot();
-      return storiesBrowser.getStories();
+      const stories = await storiesBrowser.getStories();
+      return stories.map(
+        (story) => `${storybookUrl}/iframe?id=${story.id}&viewMode=story`
+      );
     } else {
       return Promise.reject(`Please check format of your url: ${storybookUrl}`);
     }
