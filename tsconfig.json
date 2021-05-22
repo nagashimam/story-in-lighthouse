@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "target": "ES5",
-    "module": "ES2015"
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "Node"
   }
 }

@@ -1,4 +1,5 @@
 module.exports = {
+  target: "node",
   mode: "development",
   entry: "./src/main.ts",
   module: {
