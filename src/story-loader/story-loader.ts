@@ -1,6 +1,6 @@
-import { StoriesBrowser, Story, StorybookConnection } from "storycrawler";
+import { StoriesBrowser, StorybookConnection } from "storycrawler";
 
-export class StoryLoader {
+export class StoryIframeLoader {
   async getStoryIframeUrls(storybookUrl: string): Promise<string[]> {
     if (storybookUrl.match(/https?:\/\/.+/)) {
       const connection = await new StorybookConnection({

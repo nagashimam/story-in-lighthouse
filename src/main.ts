@@ -1,4 +1,4 @@
-import { StoryLoader } from "./story-loader/story-loader";
+import { StoryIframeLoader } from "./story-loader/story-loader";
 import { StorybookConnection, StoriesBrowser } from "storycrawler";
 (async () => {
   try {

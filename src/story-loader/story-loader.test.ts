@@ -1,5 +1,5 @@
-import { Story, StorybookConnection, StoriesBrowser } from "storycrawler";
-import { StoryLoader } from "./story-loader";
+import { Story } from "storycrawler";
+import { StoryIframeLoader } from "./story-loader";
 
 const dummyStories: Story[] = [
   {
@@ -33,14 +33,14 @@ jest.mock("storycrawler", () => {
 });
 
 test("should throw error when invalid url is passed as constructor", () => {
-  const loader = new StoryLoader();
+  const loader = new StoryIframeLoader();
   return expect(loader.getStoryIframeUrls("invalid-url")).rejects.toMatch(
     "Please check format of your url: invalid-url"
   );
 });
 
 test("should fetch array of Story iframe url when Storybook url is valid", () => {
-  const loader = new StoryLoader();
+  const loader = new StoryIframeLoader();
   return expect(
     loader.getStoryIframeUrls(
       "https://storybookjs.netlify.app/vue-kitchen-sink"
