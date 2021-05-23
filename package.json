@@ -4,7 +4,9 @@
   "description": "This package crawls your Storybook and runs lighthouse audits for each story",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start": "node dist/main.js",
+    "aggregate": "ls temp*.csv | xargs tail +2 >> tempmaster.csv & cat tempmaster.csv | grep -v '==' >> report.csv & rm temp*.csv"
   },
   "keywords": [
     "lighthouse",
